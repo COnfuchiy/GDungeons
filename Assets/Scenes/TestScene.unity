@@ -191,8 +191,8 @@ Animator:
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: d5bbd4f5653117849946b7fb37e80b3f, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
+  m_CullingMode: 1
+  m_UpdateMode: 1
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
@@ -353,7 +353,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5385148717599559922, guid: 8b68c793ff2880244af734e7b00f2ba1, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5385148717605136648, guid: 8b68c793ff2880244af734e7b00f2ba1, type: 3}
       propertyPath: m_Sprite
@@ -377,15 +377,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5385148718249980818, guid: 8b68c793ff2880244af734e7b00f2ba1, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5385148718391769782, guid: 8b68c793ff2880244af734e7b00f2ba1, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5385148718979791213, guid: 8b68c793ff2880244af734e7b00f2ba1, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5385148719093546898, guid: 8b68c793ff2880244af734e7b00f2ba1, type: 3}
       propertyPath: m_Sprite

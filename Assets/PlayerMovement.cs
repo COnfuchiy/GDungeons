@@ -8,6 +8,12 @@ public class PlayerMovement : MonoBehaviour
     public GameObject Player;
     public float speed;
     private Vector3 _moveVector;
+
+    private static readonly int RightMove = Animator.StringToHash("RightMove");
+    private static readonly int LeftMove = Animator.StringToHash("LeftMove");
+    private static readonly int DownMove = Animator.StringToHash("DownMove");
+    private static readonly int UpMove = Animator.StringToHash("UpMove");
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -17,34 +23,40 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        if(Input.GetKey(KeyCode.W)) 
-        { 
-            Player.transform.position += Player.transform.up * speed * Time.deltaTime; 
-            _playerAnimator.SetInteger("xMovement", 1);
-            _playerAnimator.SetFloat("speed", speed * Time.deltaTime);
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            Player.transform.position += Player.transform.up * speed * Time.deltaTime;
+            _playerAnimator.SetBool(UpMove, true);
         }
-        else if(Input.GetKey(KeyCode.S)){
+        if(Input.GetKeyDown(KeyCode.S)){
             Player.transform.position -= Player.transform.up * speed * Time.deltaTime;
-            _playerAnimator.SetInteger("xMovement", -1);
-            _playerAnimator.SetFloat("speed", speed * Time.deltaTime);
+            _playerAnimator.SetBool(DownMove, true);
         }
-        else if(Input.GetKey (KeyCode.A)) 
+        if(Input.GetKeyDown(KeyCode.A)) 
         { 
             Player.transform.position -= Player.transform.right * speed * Time.deltaTime; 
-            _playerAnimator.SetInteger("yMovement", -1);
-            _playerAnimator.SetFloat("speed", speed * Time.deltaTime);
+            _playerAnimator.SetBool(LeftMove, true);
         }
-        else if(Input.GetKey (KeyCode.D)) 
+        if(Input.GetKeyDown(KeyCode.D)) 
         { 
             Player.transform.position += Player.transform.right * speed * Time.deltaTime;
-            _playerAnimator.SetInteger("yMovement", 1);
-            _playerAnimator.SetFloat("speed", speed * Time.deltaTime);
-        }     
-        else{
-            _playerAnimator.SetInteger("xMovement", 0);
-            _playerAnimator.SetInteger("yMovement", 0);
-            _playerAnimator.SetFloat("speed", 0);
-
+            _playerAnimator.SetBool(RightMove, true);
+        }  
+        if (Input.GetKeyUp(KeyCode.W) && _playerAnimator.GetBool(UpMove))
+        {
+            _playerAnimator.SetBool(UpMove, false);
         }
+        if(Input.GetKeyUp(KeyCode.S) && _playerAnimator.GetBool(DownMove)){
+            _playerAnimator.SetBool(DownMove, false);
+        }
+        if(Input.GetKeyUp(KeyCode.A) && _playerAnimator.GetBool(LeftMove)) 
+        { 
+            _playerAnimator.SetBool(LeftMove, false);
+        }
+        if(Input.GetKeyUp(KeyCode.D) && _playerAnimator.GetBool(RightMove)) 
+        { 
+            _playerAnimator.SetBool(RightMove, false);
+        }     
+        
     }
 }
